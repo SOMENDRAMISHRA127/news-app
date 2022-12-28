@@ -1,0 +1,19 @@
+<div class="container-fluid mt-1">
+    <div class="search-results" infinite-scroll (scrolled)="onScrollDown()" (scrolledUp)="onUp()">
+        <div class="row">
+            <h5 class="background text-ligt text-center text-light p-2">{{q}} News Section</h5>
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-2" *ngFor="let item of articles">
+                <div class="card">
+                    <img src={{item.urlToImage}} class="card-img-top" height="170px" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title.slice(0,70)+"..."}}</h5>
+                        <h6 class="card-source">{{item.source.name}}-{{item.publishedAt|date}}</h6>
+                        <hr>
+                        <p class="card-text">{{item.description.slice(0,200)+"..."}}</p>
+                        <a href="{{item.url}}" class="btn background w-100 text-light btn-sm">Read Full Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
